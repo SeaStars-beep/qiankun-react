@@ -1,0 +1,43 @@
+{
+  "name": "main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "all:install": "npm-run-all --serial install:*",
+    "all:start": "npm-run-all --parallel start:*",
+    "install:react16": "cd sub-app/react16 && npm install",
+    "install:vue": "cd sub-app/vue && npm install",
+    "install:main": "npm install",
+    "start:main": "webpack-dev-server",
+    "start:react16": "cd sub-app/react16 && npm run  start",
+    "start:vue": "cd sub-app/vue && npm run  start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "father-build"
+  },
+  "author": "",
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-transform-react-jsx": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-import": "^1.13.3",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.2.0",
+    "father-build": "^1.19.8",
+    "html-webpack-plugin": "^3.2.0",
+    "less-loader": "^6.2.0",
+    "npm-run-all": "^4.1.5",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.15.3",
+    "lodash": "^4.17.21",
+    "qiankun": "^2.4.8",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
