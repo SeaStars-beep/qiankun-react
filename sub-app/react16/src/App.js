@@ -1,7 +1,7 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense,useState,useEffect } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import { Divider } from 'antd';
-
+import {GlobalContext,initState } from './Context'
 import 'antd/dist/antd.min.css';
 import './App.css';
 
@@ -29,7 +29,15 @@ const RouteExample = () => {
   );
 };
 
-export default function App() {
+export default function App(props) {
+  // const {onGlobalStateChange,setGlobalState} = props.global;
+  // const [data,setData] = useState(null);
+  // useEffect(()=>{
+  //   onGlobalStateChange(value =>{
+  //     setData(value)
+  //   },true)
+  // },[])
+  // const obj = {data,setGlobalState}
   return (
     <div className="app-main">
       <LibVersion />

@@ -3,13 +3,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { GlobalContext,ContextProvider } from './Context'
 
 function render(props) {
-  const { container } = props;
-  ReactDOM.render(<App />, container ? container.querySelector('#root') : document.querySelector('#root'));
+  const { container ,onGlobalStateChange,setGlobalState} = props;
+  ReactDOM.render(<ContextProvider global={{onGlobalStateChange,setGlobalState}}>
+      <App />
+    </ContextProvider> , 
+    container ? container.querySelector('#root') : document.querySelector('#root'));
 }
 
 function storeTest(props) {
+  
   props.onGlobalStateChange((value, prev) => console.log(`[onGlobalStateChange - ${props.name}]:`, value, prev), true);
   props.setGlobalState({
     ignore: props.name,
@@ -30,7 +35,7 @@ export async function bootstrap() {
 
 export async function mount(props) {
   console.log('[react16] props from main framework', props);
-  storeTest(props);
+  // storeTest(props);
   render(props);
 }
 

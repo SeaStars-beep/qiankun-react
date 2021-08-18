@@ -13,7 +13,7 @@
     "start:react16": "cd sub-app/react16 && npm run  start",
     "start:vue": "cd sub-app/vue && npm run  start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "father-build"
+    "build": "npm-run-all --serial father-build"
   },
   "author": "",
   "devDependencies": {
