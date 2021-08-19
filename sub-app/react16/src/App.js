@@ -1,7 +1,6 @@
-import React, { lazy, Suspense,useState,useEffect } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import { Divider } from 'antd';
-import {GlobalContext,initState } from './Context'
 import 'antd/dist/antd.min.css';
 import './App.css';
 
@@ -38,13 +37,16 @@ export default function App(props) {
   //   },true)
   // },[])
   // const obj = {data,setGlobalState}
+  const handleClick = ()=>{
+    window.history.pushState('/vue')
+  }
   return (
     <div className="app-main">
       <LibVersion />
       <HelloModal />
 
       <Divider />
-
+      <h4 onClick={handleClick}>跳转vue</h4>
       <RouteExample />
     </div>
   );

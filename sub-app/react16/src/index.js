@@ -3,27 +3,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { GlobalContext,ContextProvider } from './Context'
+import { ContextProvider } from './Context'
 
 function render(props) {
   const { container ,onGlobalStateChange,setGlobalState} = props;
-  ReactDOM.render(<ContextProvider global={{onGlobalStateChange,setGlobalState}}>
+  ReactDOM.render(container? <ContextProvider global={{onGlobalStateChange,setGlobalState}}>
       <App />
-    </ContextProvider> , 
+    </ContextProvider>:   <App />, 
     container ? container.querySelector('#root') : document.querySelector('#root'));
 }
 
-function storeTest(props) {
+// function storeTest(props) {
   
-  props.onGlobalStateChange((value, prev) => console.log(`[onGlobalStateChange - ${props.name}]:`, value, prev), true);
-  props.setGlobalState({
-    ignore: props.name,
-    user: {
-      name: props.name,
-      keyword: '323323223'
-    },
-  });
-}
+//   props.onGlobalStateChange((value, prev) => console.log(`[onGlobalStateChange - ${props.name}]:`, value, prev), true);
+//   props.setGlobalState({
+//     ignore: props.name,
+//     user: {
+//       name: props.name,
+//       keyword: '323323223'
+//     },
+//   });
+// }
 
 if (!window.__POWERED_BY_QIANKUN__) {
   render({});

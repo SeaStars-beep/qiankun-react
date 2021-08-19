@@ -11,7 +11,7 @@ const ContextProvider = (props) => {
      onGlobalStateChange(value =>{
         setData(value)
       },true)
-    },[])
+    },[onGlobalStateChange])
     const obj = {data,setGlobalState};
     return (
       <GlobalContext.Provider value={obj}>
