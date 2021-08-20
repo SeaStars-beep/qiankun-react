@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import { Divider } from 'antd';
 import 'antd/dist/antd.min.css';
 import './App.css';
@@ -12,7 +12,7 @@ const About = lazy(() => import('./pages/About'));
 
 const RouteExample = () => {
   return (
-    <Router basename={window.__POWERED_BY_QIANKUN__ ? '/react16' : '/'}>
+    <Router basename={window.__POWERED_BY_QIANKUN__ ? '/react16/' : '/'}>
       <nav>
         <Link to="/">Home</Link>
         <Divider type="vertical" />
@@ -38,7 +38,7 @@ export default function App(props) {
   // },[])
   // const obj = {data,setGlobalState}
   const handleClick = ()=>{
-    window.history.pushState('/vue')
+    window.history.pushState(null,'vue','/vue/');
   }
   return (
     <div className="app-main">
